@@ -1,0 +1,11 @@
+def contar_vocales(cadena):
+    vocales = "aeiouAEIOU"
+    contador = 0
+    for letra in cadena:
+        if letra in vocales:
+            contador += 1
+    return contador
+
+# Entrada del usuario
+texto = input("Ingresa un texto: ")
+print(f"El texto tiene {contar_vocales(texto)} vocales.")
