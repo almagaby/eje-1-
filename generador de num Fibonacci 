@@ -1,0 +1,9 @@
+def fibonacci(limite):
+    serie = [0, 1]
+    while serie[-1] + serie[-2] < limite:
+        serie.append(serie[-1] + serie[-2])
+    return serie
+
+# Entrada del usuario
+limite = int(input("Ingresa el límite para la serie de Fibonacci: "))
+print(f"La serie de Fibonacci hasta {limite} es: {fibonacci(limite)}")
