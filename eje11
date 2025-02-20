@@ -1,0 +1,28 @@
+# data_analysis.py
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+df = pd.read_csv('data.csv')
+
+# Basic info
+print(df.info())
+print(df.describe())
+
+# Data visualization
+plt.figure(figsize=(10,6))
+sns.histplot(df['column_name'], bins=30, kde=True)
+plt.title('Distribution of column_name')
+plt.show()
+
+# Correlation matrix
+plt.figure(figsize=(8,6))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Matrix')
+plt.show()
+
+# Save cleaned dataset
+df.to_csv('cleaned_data.csv', index=False)
+
+print("Data analysis complete and saved to cleaned_data.csv")
