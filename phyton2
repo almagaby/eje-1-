@@ -1,0 +1,43 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+# Cargar datos
+df = pd.read_csv('customer_data.csv')
+print("Primeras filas del dataset:")
+print(df.head())
+print("Información general del dataset:")
+print(df.info())
+print("Descripción estadística:")
+print(df.describe())
+
+# Visualización de datos
+plt.figure(figsize=(10,5))
+sns.scatterplot(x=df['ingresos_anuales'], y=df['gasto_anual'])
+plt.title('Ingresos vs Gasto Anual')
+plt.xlabel('Ingresos Anuales')
+plt.ylabel('Gasto Anual')
+plt.show()
+
+# Preprocesamiento de datos
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df[['ingresos_anuales', 'gasto_anual']])
+
+# Aplicación de K-Means
+kmeans = KMeans(n_clusters=3, random_state=42)
+df['cluster'] = kmeans.fit_predict(df_scaled)
+
+# Visualización de clusters
+plt.figure(figsize=(10,5))
+sns.scatterplot(x=df['ingresos_anuales'], y=df['gasto_anual'], hue=df['cluster'], palette='viridis')
+plt.title('Segmentación de Clientes')
+plt.xlabel('Ingresos Anuales')
+plt.ylabel('Gasto Anual')
+plt.legend()
+plt.show()
+
+print("Centroides del modelo:")
+print(kmeans.cluster_centers_)
