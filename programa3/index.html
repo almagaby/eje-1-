@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>TODO LIST</h2>
+
+        <div class="todo-wrapper">
+            <!-- Sección para agregar tareas -->
+            <div class="todo-input">
+                <h3>Nueva Tarea</h3>
+                <input type="text" id="task" placeholder="Tarea">
+                <input type="text" id="description" placeholder="Descripción">
+                <button onclick="addTask()">Agregar</button>
+            </div>
+
+            <!-- Sección de listas de tareas -->
+            <div class="tasks-container">
+                <div class="task-section">
+                    <h3>Pendientes</h3>
+                    <ul id="pendingTasks" class="task-list"></ul>
+                </div>
+
+                <div class="task-section">
+                    <h3>Completadas</h3>
+                    <ul id="completedTasks" class="task-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
