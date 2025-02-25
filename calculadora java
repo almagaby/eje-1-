@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el primer número: ");
+        double num1 = scanner.nextDouble();
+        
+        System.out.print("Ingrese operación (+, -, *, /): ");
+        char op = scanner.next().charAt(0);
+        
+        System.out.print("Ingrese el segundo número: ");
+        double num2 = scanner.nextDouble();
+        
+        double result;
+        switch (op) {
+            case '+': result = num1 + num2; break;
+            case '-': result = num1 - num2; break;
+            case '*': result = num1 * num2; break;
+            case '/': result = (num2 != 0) ? num1 / num2 : Double.NaN; break;
+            default: System.out.println("Operación no válida"); return;
+        }
+        
+        System.out.println("Resultado: " + result);
+        scanner.close();
+    }
+}
