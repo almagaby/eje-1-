@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double num1, num2, result;
+    char op;
+
+    cout << "Ingrese el primer número: ";
+    cin >> num1;
+    cout << "Ingrese operación (+, -, *, /): ";
+    cin >> op;
+    cout << "Ingrese el segundo número: ";
+    cin >> num2;
+
+    switch (op) {
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = (num2 != 0) ? num1 / num2 : 0; break;
+        default: cout << "Operación no válida\n"; return 1;
+    }
+
+    cout << "Resultado: " << result << endl;
+    return 0;
+}
