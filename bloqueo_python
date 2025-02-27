@@ -1,0 +1,4 @@
+import os
+
+ip_to_block = "192.168.1.100"
+os.system(f"sudo iptables -A INPUT -s {ip_to_block} -j DROP")
