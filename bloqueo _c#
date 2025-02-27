@@ -1,0 +1,11 @@
+using System.Diagnostics;
+
+class Program
+{
+    static void Main()
+    {
+        string ipToBlock = "192.168.1.100";
+        string command = $"netsh advfirewall firewall add rule name=\"BlockIP\" dir=in action=block remoteip={ipToBlock}";
+        Process.Start("cmd.exe", "/C " + command);
+    }
+}
