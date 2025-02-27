@@ -1,0 +1,15 @@
+import java.io.IOException;
+
+public class BlockIP {
+    public static void main(String[] args) {
+        String ipToBlock = "192.168.1.100";
+        String command = "iptables -A INPUT -s " + ipToBlock + " -j DROP";
+        
+        try {
+            Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
+            System.out.println("IP bloqueada: " + ipToBlock);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
